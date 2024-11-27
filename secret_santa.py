@@ -4,9 +4,9 @@ import random
 import json
 
 def send_email(receiver: str, name: str) -> None:
-    textfile = r'path_to_email_content.txt'
-    sender = 'sender/yours email'
-    password = 'App password' # get from google account
+    textfile = r'example_content.txt'
+    sender = 'your.email@gmail.com'
+    password = 'App password'
 
     # Open the plain text file whose name is in textfile for reading.
     with open(textfile) as fp:
@@ -17,7 +17,7 @@ def send_email(receiver: str, name: str) -> None:
 
     msg = EmailMessage()
     msg.set_content(content)
-    msg['Subject'] = f'Enter Subject'
+    msg['Subject'] = f'Secret Santa'
     msg['From'] = sender
     msg['To'] = receiver
 
@@ -63,8 +63,7 @@ def switch_pair(pairs: dict[str, str]) -> dict[str, str]:
 
     return pairs
 
-# json in format email : name
-with open('json_file.json', encoding='utf-8') as file:
+with open('example_participants.json', encoding='utf-8') as file:
     json_data = json.load(file)
 
 
